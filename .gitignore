@@ -1,3 +1,5 @@
 node_modules/
 package-lock.json.json
 dist/
+Task.json
+src/models/JsonTaskColletion.ts

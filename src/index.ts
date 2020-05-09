@@ -1,8 +1,10 @@
 import inquirer from 'inquirer';
-import {TaskColletion} from './models/TaskColletion';
 import {tasks} from './exampleData';
+import {JsonTaskColletion} from './models/JsonTaskColletion';
+// import {TaskColletion} from './models/TaskColletion'; --> Only Consola
 
-const colletion = new TaskColletion('anbreaker', tasks);
+// const colletion = new TaskColletion('anbreaker', tasks); --> Only Consola
+const colletion = new JsonTaskColletion('anbreaker', tasks);
 let showCompleted: boolean = true;
 
 function displayTaskList(): void {
