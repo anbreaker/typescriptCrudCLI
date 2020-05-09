@@ -35,6 +35,31 @@ async function promptAdd(): Promise<void> {
   promptuser();
 }
 
+async function promptComplete(): Promise<void> {
+  console.clear();
+  const answers = await inquirer.prompt({
+    type: 'checkbox',
+    name: 'complete',
+    message: 'Mark Task Complete',
+    choices: colletion.getTaskItems(showCompleted).map((item) => ({
+      name: item.task,
+      value: item.id,
+      checked: item.complete,
+    })),
+  });
+
+  let completedTasks = answers['complete'] as number[];
+  colletion
+    .getTaskItems(true)
+    .forEach((item) =>
+      colletion.markComplete(
+        item.id,
+        completedTasks.find((id) => id === item.id) != undefined
+      )
+    );
+  promptuser();
+}
+
 async function promptuser() {
   console.clear();
   displayTaskList();
@@ -52,6 +77,17 @@ async function promptuser() {
       break;
     case Commands.Add:
       promptAdd();
+      break;
+    case Commands.Complete:
+      if (colletion.getTaskCounts().incomplete > 0) {
+        promptComplete();
+      } else {
+        promptuser();
+      }
+      break;
+    case Commands.Purge:
+      colletion.removeComplete();
+      promptuser();
       break;
   }
 }
