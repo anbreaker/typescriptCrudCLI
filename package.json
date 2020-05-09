@@ -1,0 +1,31 @@
+{
+  "name": "typescriptCrudCLI",
+  "version": "1.0.0",
+  "description": "Typescript CLI | Aplicación de Tareas con Lowdb y Inquirer.js",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anbreaker/typescriptCrudCLI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anbreaker/typescriptCrudCLI/issues"
+  },
+  "homepage": "https://github.com/anbreaker/typescriptCrudCLI#readme",
+  "dependencies": {
+    "inquirer": "^7.1.0",
+    "lowdb": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^6.5.0",
+    "@types/lowdb": "^1.0.9",
+    "typescript": "^3.8.3"
+  }
+}
